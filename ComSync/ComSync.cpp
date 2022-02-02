@@ -70,6 +70,7 @@ void ComSync::Connect()
 		cout << "Already in use!\n";
 
 	m_pNetwork = new UDPClient();
+	m_pNetwork->Initialize();
 	m_pNetwork->Run();
 }
 
@@ -85,5 +86,6 @@ void ComSync::StartHost()
 		cout << "Already in use!\n";
 
 	m_pNetwork = new UDPServer();
+	m_pNetwork->Initialize();
 	m_pNetwork->Run();
 }

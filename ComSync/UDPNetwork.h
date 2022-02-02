@@ -25,13 +25,18 @@ protected:
 class UDPServer final : public UDPBase
 {
 public:
+	UDPServer();
+	~UDPServer() override;
 
 	virtual bool Initialize() override;
 	virtual void Run() override;
 
 
 private:
+	udp::socket m_Socket;
+	udp::endpoint m_Client;
 
+	TransferData m_TransferData[1];
 };
 
 class UdpClient final : public UDPBase

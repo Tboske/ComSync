@@ -9,8 +9,8 @@
 ComSync::ComSync()
 {
 	m_Commands.emplace("help"			, [this] { return Help();						});
-	m_Commands.emplace("disconnect"		, [this] { return Help();						});
-	m_Commands.emplace("connect"		, [this] { return Help();						});
+	m_Commands.emplace("disconnect"		, [this] { return Disconnect();				});
+	m_Commands.emplace("connect"		, [this] { return Connect();					});
 	m_Commands.emplace("startHost"		, [this] { return StartHost();					});
 	m_Commands.emplace("exit"			, [this] { return m_ExitApplications = true;	});
 

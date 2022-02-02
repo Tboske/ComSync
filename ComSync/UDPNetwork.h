@@ -36,6 +36,11 @@ public:
 	UDPServer();
 	~UDPServer() override;
 
+	UDPServer(UDPServer&&) = delete;
+	UDPServer(const UDPServer&) = delete;
+	UDPServer& operator=(UDPServer&&) = delete;
+	UDPServer& operator=(const UDPServer&) = delete;
+
 	[[nodiscard]] virtual bool Initialize() override;
 	virtual void Run() override;
 
@@ -50,6 +55,11 @@ class UDPClient final : public UDPBase
 public:
 	UDPClient();
 	~UDPClient() override;
+
+	UDPClient(UDPClient&&) = delete;
+	UDPClient(const UDPClient&) = delete;
+	UDPClient& operator=(UDPClient&&) = delete;
+	UDPClient& operator=(const UDPClient&) = delete;
 
 	[[nodiscard]] virtual bool Initialize() override;
 	virtual void Run() override;

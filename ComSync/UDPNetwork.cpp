@@ -3,10 +3,14 @@
 
 
 #pragma region Server
+UDPBase::UDPBase()
+	: m_TransferData{}
+{
+}
+
 UDPServer::UDPServer()
 	: UDPBase()
 	, m_Socket(m_IoContext, udp::endpoint(udp::v4(), 13))
-	//, m_TransferData{}
 {
 }
 
@@ -58,7 +62,6 @@ UDPClient::UDPClient()
 	, m_Socket(m_IoContext)
 	, m_Resolver( m_IoContext )
 	, m_Host(*m_Resolver.resolve(udp::v4(), "192.168.0.172", "CursorMovement").begin())
-	, m_TransferData{}
 {
 }
 

@@ -69,7 +69,7 @@ void ComSync::Connect()
 	if (m_pNetwork != nullptr)
 		cout << "Already in use!\n";
 
-	m_pNetwork = new UdpClient();
+	m_pNetwork = new UDPClient();
 	m_pNetwork->Run();
 }
 

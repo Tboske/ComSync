@@ -39,11 +39,11 @@ private:
 	TransferData m_TransferData[1];
 };
 
-class UdpClient final : public UDPBase
+class UDPClient final : public UDPBase
 {
 public:
-	UdpClient();
-	~UdpClient() override;
+	UDPClient();
+	~UDPClient() override;
 
 	virtual bool Initialize() override;
 	virtual void Run() override;

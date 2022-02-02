@@ -6,6 +6,7 @@
 UDPServer::UDPServer()
 	: UDPBase()
 	, m_Socket(m_IoContext, udp::endpoint(udp::v4(), 13))
+	//, m_TransferData{}
 {
 }
 
@@ -52,20 +53,21 @@ void UDPServer::Run()
 #pragma endregion
 
 #pragma region Client
-UdpClient::UdpClient()
+UDPClient::UDPClient()
 	: UDPBase()
 	, m_Socket(m_IoContext)
 	, m_Resolver( m_IoContext )
 	, m_Host(*m_Resolver.resolve(udp::v4(), "192.168.0.172", "CursorMovement").begin())
+	, m_TransferData{}
 {
 }
 
-UdpClient::~UdpClient()
+UDPClient::~UDPClient()
 {
 	m_Socket.close();
 }
 
-bool UdpClient::Initialize()
+bool UDPClient::Initialize()
 {
 	m_Socket.open(udp::v4());
 
@@ -86,7 +88,7 @@ bool UdpClient::Initialize()
 	return true;
 }
 
-void UdpClient::Run()
+void UDPClient::Run()
 {
 	for (;;)
 	{
